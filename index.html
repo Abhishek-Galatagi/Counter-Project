@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter Project</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      font-family: "Poppins", sans-serif;
+      overflow: hidden;
+    }
+
+    /* Floating circles */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .circle:nth-child(1) { width: 120px; height: 120px; top: 10%; left: 20%; }
+    .circle:nth-child(2) { width: 80px; height: 80px; top: 70%; left: 60%; }
+    .circle:nth-child(3) { width: 150px; height: 150px; top: 40%; left: 80%; }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+
+    .counter-container {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .title {
+      font-family: "Playfair Display", serif;
+      font-size: 2.2rem;
+      color: #fdfdfd;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .counter {
+      background: white;
+      width: 140px;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin: 20px auto;
+      box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .counter:hover {
+      transform: scale(1.05);
+    }
+
+    .btn {
+      border: none;
+      outline: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 8px;
+      transition: 0.3s;
+      color: white;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .increase {
+      background: linear-gradient(135deg, #28a745, #218838);
+    }
+    .decrease {
+      background: linear-gradient(135deg, #dc3545, #b52a37);
+    }
+    .reset {
+      background: linear-gradient(135deg, #ffc107, #e0a800);
+      color: black;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    .image-box img {
+      width: 150px;
+      margin-bottom: 20px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating background circles -->
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+
+  <div class="counter-container">
+    <h1 class="title">Abhishek B. Galatagi</h1>
+    <div class="image-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Counter Icon">
+    </div>
+    <div class="counter" id="counter">0</div>
+    <button class="btn increase" onclick="increase()">Increase</button>
+    <button class="btn decrease" onclick="decrease()">Decrease</button>
+    <button class="btn reset" onclick="resetCounter()">Reset</button>
+  </div>
+
+  <!-- External Script -->
+  <script src="script.js"></script>
+</body>
+</html>
